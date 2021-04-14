@@ -519,6 +519,7 @@ MonoBehaviour:
   whatCanBePressedOn:
     serializedVersion: 2
     m_Bits: 256
+  moveIcon: {fileID: 7953625982337555808, guid: 87e9be74e7c2539438a1333eb5d441fc, type: 3}
 --- !u!195 &915461071
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -903,7 +904,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!136 &1708856980
 CapsuleCollider:

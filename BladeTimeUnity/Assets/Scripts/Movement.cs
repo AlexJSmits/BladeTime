@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -11,26 +8,58 @@ public class Movement : MonoBehaviour
 
     private NavMeshAgent myAgent;
 
+    public GameObject moveIcon;
+
+    private RaycastHit hitInfo;
+    private Ray myRay;
+
+    private Touch touch1;
+
+
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            
-            Ray myRay = Camera.main.ScreenPointToRay(touch.position);
+            touch1= Input.GetTouch(0);
 
-            RaycastHit hitInfo;
+            myRay = Camera.main.ScreenPointToRay(touch1.position);
 
-            if (Physics.Raycast (myRay, out hitInfo, 100, whatCanBePressedOn))
+            if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBePressedOn))
             {
                 myAgent.SetDestination(hitInfo.point);
+
+                MoveIcon();
+            }
+        }
+
+        GameObject[] oldMoveIcon = GameObject.FindGameObjectsWithTag("MoveIcon");
+
+        foreach (GameObject moveIcon in oldMoveIcon)
+        {
+            if (this.transform.position.x == moveIcon.transform.position.x)
+            {
+                GameObject.Destroy(moveIcon);
             }
         }
     }
+
+    void MoveIcon()
+    {
+        GameObject[] oldMoveIcon = GameObject.FindGameObjectsWithTag("MoveIcon");
+
+        foreach (GameObject moveIcon in oldMoveIcon)
+        {
+            GameObject.Destroy(moveIcon);
+        }
+
+        Instantiate(moveIcon, (hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f)), Quaternion.identity);
+        
+    }
+
 }
