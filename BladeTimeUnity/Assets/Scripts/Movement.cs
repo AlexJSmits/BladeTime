@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Experimental;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
@@ -15,13 +16,19 @@ public class Movement : MonoBehaviour
 
     private Touch touch1;
 
+    private MeshRenderer moveIconRenderer;
 
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
+
+        moveIconRenderer = moveIcon.GetComponent<MeshRenderer>();
+
+        moveIconRenderer.enabled = false;
+
+        moveIcon.transform.parent = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0)
@@ -38,27 +45,19 @@ public class Movement : MonoBehaviour
             }
         }
 
-        GameObject[] oldMoveIcon = GameObject.FindGameObjectsWithTag("MoveIcon");
-
-        foreach (GameObject moveIcon in oldMoveIcon)
+        if (this.transform.position.x == moveIcon.transform.position.x)
         {
-            if (this.transform.position.x == moveIcon.transform.position.x)
-            {
-                GameObject.Destroy(moveIcon);
-            }
+            moveIconRenderer.enabled = false;
         }
+
     }
 
     void MoveIcon()
     {
-        GameObject[] oldMoveIcon = GameObject.FindGameObjectsWithTag("MoveIcon");
 
-        foreach (GameObject moveIcon in oldMoveIcon)
-        {
-            GameObject.Destroy(moveIcon);
-        }
+        moveIconRenderer.enabled = true;
 
-        Instantiate(moveIcon, (hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f)), Quaternion.identity);
+        moveIcon.transform.position = hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f);
         
     }
 
