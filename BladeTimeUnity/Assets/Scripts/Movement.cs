@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class Movement : MonoBehaviour
 {
 
+
     public LayerMask whatCanBePressedOn;
 
     private NavMeshAgent myAgent;
@@ -18,6 +19,9 @@ public class Movement : MonoBehaviour
 
     private MeshRenderer moveIconRenderer;
 
+    public float slowTime = 0.2f;
+
+
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
@@ -27,6 +31,8 @@ public class Movement : MonoBehaviour
         moveIconRenderer.enabled = false;
 
         moveIcon.transform.parent = null;
+
+        Time.timeScale = slowTime;
     }
 
     void Update()
@@ -39,7 +45,13 @@ public class Movement : MonoBehaviour
 
             if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBePressedOn))
             {
+                Vector3 direction = (hitInfo.point - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1);
+
                 myAgent.SetDestination(hitInfo.point);
+
+                Time.timeScale = 1.0f;
 
                 MoveIcon();
             }
@@ -48,6 +60,8 @@ public class Movement : MonoBehaviour
         if (this.transform.position.x == moveIcon.transform.position.x)
         {
             moveIconRenderer.enabled = false;
+
+            Time.timeScale = slowTime;
         }
 
     }
