@@ -13,7 +13,6 @@ public class EnemyGunman : MonoBehaviour
     NavMeshAgent agent;
 
     public float shootDelay;
-    public float aimTime = 0.5f;
     public GameObject bullet;
     public Transform gunEnd;
 
@@ -38,7 +37,7 @@ public class EnemyGunman : MonoBehaviour
             if (distance <= agent.stoppingDistance)
             {
                 FaceTarget();
-                Invoke ("Shoot", aimTime);
+                Shoot();
             }
         }
         

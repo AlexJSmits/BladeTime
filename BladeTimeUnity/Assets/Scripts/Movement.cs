@@ -1,4 +1,5 @@
-﻿using UnityEditor.Experimental;
+﻿using System.Security.Cryptography;
+using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,20 +8,16 @@ public class Movement : MonoBehaviour
 
 
     public LayerMask whatCanBePressedOn;
-
-    private NavMeshAgent myAgent;
-
     public GameObject moveIcon;
+    public float slowTime = 0.2f;
 
     private RaycastHit hitInfo;
     private Ray myRay;
-
+    private NavMeshAgent myAgent;
     private Touch touch1;
-
     private MeshRenderer moveIconRenderer;
 
-    public float slowTime = 0.2f;
-
+   
 
     void Start()
     {
@@ -68,11 +65,17 @@ public class Movement : MonoBehaviour
 
     void MoveIcon()
     {
-
         moveIconRenderer.enabled = true;
 
-        moveIcon.transform.position = hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f);
-        
+        moveIcon.transform.position = hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f); 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
 }
