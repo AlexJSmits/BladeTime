@@ -1099,7 +1099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.400002, y: -15}
+  m_AnchoredPosition: {x: 23.900734, y: -15}
   m_SizeDelta: {x: 47.801468, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860005476
@@ -1599,7 +1599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7377888909618909249, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: slowTime
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7377888909618909250, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1647,6 +1647,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7377888909618909254, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377888909618909254, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
