@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-using UnityEditor.Experimental;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
@@ -9,7 +7,7 @@ public class Movement : MonoBehaviour
 
     public LayerMask whatCanBePressedOn;
     public GameObject moveIcon;
-    public float slowTime = 0.2f;
+    public float slowTime = 0.4f;
 
     private RaycastHit hitInfo;
     private Ray myRay;
@@ -47,8 +45,9 @@ public class Movement : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1);
 
                 myAgent.SetDestination(hitInfo.point);
-
+                
                 Time.timeScale = 1.0f;
+                
 
                 MoveIcon();
             }

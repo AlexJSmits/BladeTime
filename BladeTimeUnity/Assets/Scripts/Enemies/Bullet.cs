@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Bullet : MonoBehaviour
@@ -22,24 +20,10 @@ public class Bullet : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if (collision.gameObject.tag == "Bullet")
-        {
-            GetComponent<SphereCollider>().enabled = false;
-        }
-
         else
         {
             Destroy(gameObject);
         }
 
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            GetComponent<SphereCollider>().enabled = true;
-        }
-    }
-
 }
