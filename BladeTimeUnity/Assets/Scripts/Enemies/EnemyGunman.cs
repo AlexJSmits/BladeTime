@@ -14,7 +14,7 @@ public class EnemyGunman : MonoBehaviour
 
     public float shootDelay;
     public GameObject bullet;
-    public Transform gunEnd;
+    public Transform[] gunEnd;
 
 
     private float reloadTime;
@@ -59,9 +59,15 @@ public class EnemyGunman : MonoBehaviour
     {
         if (shootDelay <= 0)
         {
-            GameObject bulletObject = Instantiate(bullet, gunEnd.transform.position, Quaternion.identity);
-            bulletObject.transform.forward = gunEnd.forward;
-            shootDelay = reloadTime;
+            foreach (Transform gunEnd in gunEnd)
+            {
+                if (gunEnd != null)
+                {
+                    GameObject bulletObject = Instantiate(bullet, gunEnd.transform.position, Quaternion.identity);
+                    bulletObject.transform.forward = gunEnd.forward;
+                    shootDelay = reloadTime;
+                }
+            }
         }
     }
 

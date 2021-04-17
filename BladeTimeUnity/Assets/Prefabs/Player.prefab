@@ -798,6 +798,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   moveIcon: {fileID: 577430999808304096}
+  slowTime: 0.3
 --- !u!54 &1621351778
 Rigidbody:
   m_ObjectHideFlags: 0
