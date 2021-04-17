@@ -5,9 +5,6 @@ using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-
-
-    public LayerMask whatCanBePressedOn;
     public GameObject moveIcon;
     public float slowTime = 0.4f;
 
@@ -42,7 +39,7 @@ public class Movement : MonoBehaviour
 
             myRay = Camera.main.ScreenPointToRay(touch1.position);
 
-            if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBePressedOn))
+            if (Physics.Raycast(myRay, out hitInfo, 100, LayerMask.GetMask("Ground")))
             {
                 Vector3 direction = (hitInfo.point - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -64,7 +61,7 @@ public class Movement : MonoBehaviour
         {
             myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBePressedOn))
+            if (Physics.Raycast(myRay, out hitInfo, 100, LayerMask.GetMask("Ground")))
             {
                 Vector3 direction = (hitInfo.point - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
