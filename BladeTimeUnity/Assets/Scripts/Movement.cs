@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     private NavMeshAgent myAgent;
     private Touch touch1;
     private MeshRenderer moveIconRenderer;
-
+    private Animator playerAnimator;
    
 
     void Start()
@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
         myAgent = GetComponent<NavMeshAgent>();
 
         moveIconRenderer = moveIcon.GetComponent<MeshRenderer>();
+
+        playerAnimator = GetComponent<Animator>();
 
         moveIconRenderer.enabled = false;
 
@@ -44,10 +46,12 @@ public class Movement : MonoBehaviour
             {
                 Vector3 direction = (hitInfo.point - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
 
                 myAgent.SetDestination(hitInfo.point);
-                
+
+                playerAnimator.SetBool("isMoving", true);
+
                 Time.timeScale = 1.0f;
                 
 
@@ -68,6 +72,8 @@ public class Movement : MonoBehaviour
 
                 myAgent.SetDestination(hitInfo.point);
 
+                playerAnimator.SetBool("isMoving", true);
+
                 Time.timeScale = 1.0f;
 
                 MoveIcon();
@@ -78,6 +84,8 @@ public class Movement : MonoBehaviour
             if (this.transform.position.x == moveIcon.transform.position.x)
         {
             moveIconRenderer.enabled = false;
+
+            playerAnimator.SetBool("isMoving", false);
 
             Time.timeScale = slowTime;
         }
