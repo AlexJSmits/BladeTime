@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class EnemyGunman : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class EnemyGunman : MonoBehaviour
     public GameObject bullet;
     public Transform[] gunEnd;
 
-
+    private ParticleSystem blood;
     private float reloadTime;
 
     void Start()
@@ -24,6 +25,7 @@ public class EnemyGunman : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
         reloadTime = shootDelay;
+        blood = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -69,6 +71,16 @@ public class EnemyGunman : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Death()
+    {
+        //Set Animation to Death Animation
+
+        blood.Play();
+        blood.transform.parent = null;
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

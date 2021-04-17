@@ -95,7 +95,7 @@ public class Movement : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyGunman>().Death();
         }
     }
 

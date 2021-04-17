@@ -609,10 +609,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy(Pistol)
       objectReference: {fileID: 0}
-    - target: {fileID: 4037195764755778306, guid: 417b41abb78f9ff42944f8bdf6f6c530, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4037195764755778317, guid: 417b41abb78f9ff42944f8bdf6f6c530, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -738,7 +734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3535531, y: -0.6123726, z: 0.3535531, w: 0.61237264}
-  m_LocalPosition: {x: 3.767958, y: 10.660251, z: -0.0000006081487}
+  m_LocalPosition: {x: 3.2679584, y: 10.660251, z: -0.0000006009656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1946910062}
@@ -905,8 +901,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1025840750
 Transform:
@@ -1462,7 +1458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7377888909618909250, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7377888909618909250, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1525,10 +1521,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7971074169986365321, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7971074170107172119, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40
@@ -1576,26 +1568,6 @@ PrefabInstance:
     - target: {fileID: 7971074170107172120, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
       propertyPath: m_Name
       value: Enemy(Shotgun)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971074170107172120, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971074170479707231, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971074170950866136, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971074171122179323, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971074171631730445, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3372ff810caca4f9ae1293ae1a8873, type: 3}
