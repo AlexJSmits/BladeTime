@@ -81,12 +81,10 @@ public class Movement : MonoBehaviour
         }
         // End
 
-            if (this.transform.position.x == moveIcon.transform.position.x)
+        if (this.transform.position.x == moveIcon.transform.position.x)
         {
             moveIconRenderer.enabled = false;
-
             playerAnimator.SetBool("isMoving", false);
-
             Time.timeScale = slowTime;
         }
 
@@ -101,9 +99,14 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyGunman>().Death();
+            Ray ray = new Ray(transform.position, other.gameObject.transform.position);
+            if (Physics.Raycast(ray, out hitInfo) && other.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyGunman>().Death();
+            }
         }
     }
 
