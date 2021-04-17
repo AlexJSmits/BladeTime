@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -53,7 +55,27 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (this.transform.position.x == moveIcon.transform.position.x)
+        // For PC Testing Purposes Only
+        if (Input.GetMouseButton(0))
+        {
+            myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBePressedOn))
+            {
+                Vector3 direction = (hitInfo.point - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1);
+
+                myAgent.SetDestination(hitInfo.point);
+
+                Time.timeScale = 1.0f;
+
+                MoveIcon();
+            }
+        }
+        // End
+
+            if (this.transform.position.x == moveIcon.transform.position.x)
         {
             moveIconRenderer.enabled = false;
 
