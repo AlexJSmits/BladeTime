@@ -14,7 +14,7 @@ public class EnemyGunman : MonoBehaviour
     NavMeshAgent agent;
 
     public float shootDelay;
-    public float aimTime;
+    public float aimDelay;
     public GameObject bullet;
     public Transform[] gunEnd;
 
@@ -68,7 +68,7 @@ public class EnemyGunman : MonoBehaviour
         if (shootDelay <= 0)
         {
             isReady = false;
-            Invoke("ReadyUp", aimTime);
+            Invoke("ReadyUp", aimDelay);
 
             foreach (Transform gunEnd in gunEnd)
             {

@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 10
   shootDelay: 1
-  aimTime: 0.5
+  aimDelay: 0.5
   bullet: {fileID: 8748793615182272115, guid: 5c6de1aef6e88a348848e2b1d2a33b2d, type: 3}
   gunEnd:
   - {fileID: 4037195762770905795}
