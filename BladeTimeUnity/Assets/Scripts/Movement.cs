@@ -34,6 +34,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        float distance = Vector3.Distance(moveIcon.transform.position, transform.position);
+
         if (Input.touchCount > 0)
         {
             touch1= Input.GetTouch(0);
@@ -79,7 +81,7 @@ public class Movement : MonoBehaviour
         }
         // End
 
-        if (this.transform.position.x == moveIcon.transform.position.x)
+        if (distance <= myAgent.stoppingDistance)
         {
             moveIconRenderer.enabled = false;
             playerAnimator.SetBool("isMoving", false);
@@ -95,7 +97,7 @@ public class Movement : MonoBehaviour
         moveIcon.transform.position = hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f); 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
         if (other.gameObject.tag == "Enemy")
