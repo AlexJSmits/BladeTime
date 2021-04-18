@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 10
   shootDelay: 2
+  aimTime: 0.75
   bullet: {fileID: 8748793615182272115, guid: 5c6de1aef6e88a348848e2b1d2a33b2d, type: 3}
   gunEnd:
   - {fileID: 7971074170950866137}
@@ -149,7 +150,6 @@ GameObject:
   - component: {fileID: 7971074170479707228}
   - component: {fileID: 7971074170479707227}
   - component: {fileID: 7971074170479707226}
-  - component: {fileID: 7971074170479707229}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -223,19 +223,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7971074170479707229
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7971074170479707231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7971074170950866136
 GameObject:
   m_ObjectHideFlags: 0

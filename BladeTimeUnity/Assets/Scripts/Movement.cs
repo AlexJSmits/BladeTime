@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class Movement : MonoBehaviour
             {
                 Vector3 direction = (hitInfo.point - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 100);
 
                 myAgent.SetDestination(hitInfo.point);
 
@@ -105,6 +106,11 @@ public class Movement : MonoBehaviour
                 other.gameObject.GetComponent<EnemyGunman>().Death();
             }
         }
+    }
+
+    public void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

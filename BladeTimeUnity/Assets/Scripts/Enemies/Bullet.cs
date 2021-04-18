@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 10f;
+    private RaycastHit hitInfo;
 
     private void Update()
     {
         transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("hit");
-        
-        if (collision.gameObject.tag == "Player")
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f));
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+            //if (hitInfo.transform.tag == "Player")
+            //{
+            //    hitInfo.transform.GetComponent<Movement>().Death();
+            //    Destroy(gameObject);
+            //}
 
-        else
-        {
-            Destroy(gameObject);
+            //else if (hitInfo.transform.gameObject.tag != "Player")
+            //{
+            //    Destroy(gameObject);
+            //}
+
         }
 
     }

@@ -14,11 +14,13 @@ public class EnemyGunman : MonoBehaviour
     NavMeshAgent agent;
 
     public float shootDelay;
+    public float aimTime;
     public GameObject bullet;
     public Transform[] gunEnd;
 
     private ParticleSystem blood;
     private float reloadTime;
+    private bool isReady = true;
 
     void Start()
     {
@@ -52,15 +54,22 @@ public class EnemyGunman : MonoBehaviour
 
     void FaceTarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+        if (isReady)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+        }
+        
     }
 
     void Shoot()
     {
         if (shootDelay <= 0)
         {
+            isReady = false;
+            Invoke("ReadyUp", aimTime);
+
             foreach (Transform gunEnd in gunEnd)
             {
                 if (gunEnd != null)
@@ -71,6 +80,11 @@ public class EnemyGunman : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ReadyUp()
+    {
+        isReady = true;
     }
 
     public void Death()
