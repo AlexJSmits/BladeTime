@@ -7,6 +7,7 @@ TagManager:
   - MoveIcon
   - Bullet
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

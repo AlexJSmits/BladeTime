@@ -9,19 +9,19 @@ public class Bullet : MonoBehaviour
     {
         transform.position += transform.forward * bulletSpeed * Time.deltaTime;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 1f));
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 0.1f))
         {
-            //if (hitInfo.transform.tag == "Player")
-            //{
-            //    hitInfo.transform.GetComponent<Movement>().Death();
-            //    Destroy(gameObject);
-            //}
+            if (hitInfo.transform.tag == "Player")
+            {
+                hitInfo.transform.GetComponent<Movement>().Death();
+                Destroy(gameObject);
+            }
 
-            //else if (hitInfo.transform.gameObject.tag != "Player")
-            //{
-            //    Destroy(gameObject);
-            //}
-
+            if (hitInfo.transform.tag != "Player" || hitInfo.transform.tag == null)
+            {
+                Debug.Log("Not Player");
+                Destroy(gameObject);
+            }
         }
 
     }

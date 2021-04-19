@@ -88,6 +88,13 @@ public class Movement : MonoBehaviour
             Time.timeScale = slowTime;
         }
 
+        if (Physics.SphereCast(transform.position + new Vector3(0, 1, 0.5f), 0.75f, transform.forward, out RaycastHit sphereHitInfo, 1f))
+        {
+            if (sphereHitInfo.transform.tag == "Enemy")
+                {
+                sphereHitInfo.transform.gameObject.GetComponent<EnemyGunman>().Death();
+            }
+        }
     }
 
     void MoveIcon()
@@ -97,18 +104,6 @@ public class Movement : MonoBehaviour
         moveIcon.transform.position = hitInfo.point + new Vector3(0.0f, 0.5f, 0.0f); 
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            Ray ray = new Ray(transform.position, other.gameObject.transform.position);
-            if (Physics.Raycast(ray, out hitInfo) && other.tag == "Enemy")
-            {
-                other.gameObject.GetComponent<EnemyGunman>().Death();
-            }
-        }
-    }
 
     public void Death()
     {
