@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7971074169986365318}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GunEnd 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7971074170107172121}
   - component: {fileID: 7971074170107172116}
   - component: {fileID: 7971074170107172117}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy(Shotgun)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7971074170479707228}
   - component: {fileID: 7971074170479707227}
   - component: {fileID: 7971074170479707226}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7971074170950866137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GunEnd 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7971074171122179320}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GunEnd 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 7971074171631730441}
   - component: {fileID: 7971074171631730440}
   - component: {fileID: 7971074171631730443}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,6 +371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7971074170107172119}
     m_Modifications:
+    - target: {fileID: 93198428, guid: 9f1cec5000295aa418343388059387c7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 93198429, guid: 9f1cec5000295aa418343388059387c7, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 2
@@ -422,6 +426,10 @@ PrefabInstance:
     - target: {fileID: 6437922815970881004, guid: 9f1cec5000295aa418343388059387c7, type: 3}
       propertyPath: m_Name
       value: BloodSpray
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437922815970881004, guid: 9f1cec5000295aa418343388059387c7, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1cec5000295aa418343388059387c7, type: 3}
