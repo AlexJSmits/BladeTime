@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7971074170107172121}
   - component: {fileID: 7971074170107172116}
   - component: {fileID: 7971074170107172117}
+  - component: {fileID: 8805844814697397920}
   m_Layer: 11
   m_Name: Enemy(Shotgun)
   m_TagString: Enemy
@@ -139,6 +140,25 @@ MonoBehaviour:
   - {fileID: 7971074170950866137}
   - {fileID: 7971074171122179320}
   - {fileID: 7971074169986365318}
+--- !u!95 &8805844814697397920
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971074170107172120}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0ce7e347edc82444999841fcbf6ae8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7971074170479707231
 GameObject:
   m_ObjectHideFlags: 0

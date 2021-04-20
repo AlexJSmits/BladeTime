@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 {
     public GameObject moveIcon;
     public float slowTime = 0.4f;
+    public string[] attacks;
 
     private RaycastHit hitInfo;
     private Ray myRay;
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
     private MeshRenderer moveIconRenderer;
     private Animator playerAnimator;
     private bool interactable;
+    private string attackTrigger;
    
 
     void Start()
@@ -40,10 +42,11 @@ public class Movement : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        else
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             interactable = true;
         }
+
 
         float distance = Vector3.Distance(moveIcon.transform.position, transform.position);
 
@@ -105,10 +108,13 @@ public class Movement : MonoBehaviour
         {
             if (sphereHitInfo.transform.tag == "Enemy")
             {
-                playerAnimator.SetTrigger("attack");
+                playerAnimator.SetTrigger(attackTrigger);
                 sphereHitInfo.transform.gameObject.GetComponent<EnemyGunman>().Death();
             }
         }
+
+        attackTrigger = attacks[Random.Range(0, attacks.Length)];
+
     }
 
     void MoveIcon()
@@ -121,7 +127,16 @@ public class Movement : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        playerAnimator.SetTrigger("death");
+        interactable = false;
+        Time.timeScale = 1;
+        Invoke("Restart", 3);
+        GetComponent<CapsuleCollider>().enabled = false;
+        Destroy(GetComponent<Rigidbody>());
     }
 
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

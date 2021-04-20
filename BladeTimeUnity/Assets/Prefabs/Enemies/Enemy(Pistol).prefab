@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 4037195764755778307}
   - component: {fileID: 4037195764755778318}
   - component: {fileID: 4037195764755778319}
+  - component: {fileID: 8757964758620109296}
   m_Layer: 11
   m_Name: Enemy(Pistol)
   m_TagString: Enemy
@@ -300,6 +301,25 @@ MonoBehaviour:
   bullet: {fileID: 8748793615182272115, guid: 5c6de1aef6e88a348848e2b1d2a33b2d, type: 3}
   gunEnd:
   - {fileID: 4037195762770905795}
+--- !u!95 &8757964758620109296
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037195764755778306}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a71d0dc0b1dfde2459732f26f491102c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6731585611049781656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 6437922815970881004, guid: 9f1cec5000295aa418343388059387c7, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203428046298197536, guid: 9f1cec5000295aa418343388059387c7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1cec5000295aa418343388059387c7, type: 3}

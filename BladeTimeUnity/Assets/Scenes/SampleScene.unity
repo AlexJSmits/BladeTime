@@ -698,10 +698,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2509138832825804728, guid: 417b41abb78f9ff42944f8bdf6f6c530, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4037195764755778306, guid: 417b41abb78f9ff42944f8bdf6f6c530, type: 3}
       propertyPath: m_Name
       value: Enemy(Pistol)
@@ -1808,8 +1804,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3441191737687580755, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
+      propertyPath: attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441191737687580755, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: slowTime
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441191737687580755, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
+      propertyPath: attacks.Array.data[0]
+      value: spinAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441191737687580755, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
+      propertyPath: attacks.Array.data[1]
+      value: spinAttack
       objectReference: {fileID: 0}
     - target: {fileID: 3450043969334840514, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_Layer
@@ -1930,6 +1938,16 @@ PrefabInstance:
     - target: {fileID: 6310215787670712084, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452345325501420228, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+        'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform
+        'mixamorig:LeftLeg'\n\tand more ...\n\tFrom animation clip 'SpinAttack'"
       objectReference: {fileID: 0}
     - target: {fileID: 6508732792051813032, guid: 23881016dfb29e044b04d58a3faf2932, type: 3}
       propertyPath: m_Layer

@@ -89,12 +89,13 @@ public class EnemyGunman : MonoBehaviour
 
     public void Death()
     {
-        //Set Animation to Death Animation
-
+        Destroy(GetComponent<EnemyGunman>());
+        GetComponent<CapsuleCollider>().enabled = false;
+        Destroy(GetComponent<Rigidbody>());
         blood.Play();
         blood.transform.parent = null;
-
-        Destroy(gameObject);
+        GetComponent<Animator>().enabled = true;
+        Destroy(gameObject, 1);
     }
 
     private void OnDrawGizmosSelected()
