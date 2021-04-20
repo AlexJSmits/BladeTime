@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     private Touch touch1;
     private MeshRenderer moveIconRenderer;
     private Animator playerAnimator;
+    private bool interactable;
    
 
     void Start()
@@ -28,15 +29,25 @@ public class Movement : MonoBehaviour
         moveIconRenderer.enabled = false;
 
         moveIcon.transform.parent = null;
-
-        Time.timeScale = slowTime;
     }
 
     void Update()
     {
+
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Draw"))
+        {
+            interactable = false;
+            Time.timeScale = 1;
+        }
+
+        else
+        {
+            interactable = true;
+        }
+
         float distance = Vector3.Distance(moveIcon.transform.position, transform.position);
 
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && interactable)
         {
             touch1= Input.GetTouch(0);
 
@@ -60,7 +71,7 @@ public class Movement : MonoBehaviour
         }
 
         // For PC Testing Purposes Only
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && interactable)
         {
             myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -81,17 +92,20 @@ public class Movement : MonoBehaviour
         }
         // End
 
-        if (distance <= myAgent.stoppingDistance)
+        // check if player has arrived at location
+        if (distance <= 0.5f && interactable)
         {
             moveIconRenderer.enabled = false;
             playerAnimator.SetBool("isMoving", false);
             Time.timeScale = slowTime;
         }
 
+        //check if player has detected enemy and attack
         if (Physics.SphereCast(transform.position + new Vector3(0, 1, 0.5f), 0.75f, transform.forward, out RaycastHit sphereHitInfo, 1f))
         {
             if (sphereHitInfo.transform.tag == "Enemy")
-                {
+            {
+                playerAnimator.SetTrigger("attack");
                 sphereHitInfo.transform.gameObject.GetComponent<EnemyGunman>().Death();
             }
         }
