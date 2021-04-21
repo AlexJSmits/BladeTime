@@ -17,9 +17,14 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (hitInfo.transform.tag != "Player" || hitInfo.transform.tag == null)
+            else if (hitInfo.transform.tag == "Enemy")
             {
-                Debug.Log("Not Player");
+                hitInfo.transform.GetComponent<EnemyGunman>().Death();
+                Destroy(gameObject);
+            }
+
+            else
+            {
                 Destroy(gameObject);
             }
         }

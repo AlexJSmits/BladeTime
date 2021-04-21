@@ -127,6 +127,8 @@ public class Movement : MonoBehaviour
 
     public void Death()
     {
+        moveIcon.transform.position = transform.position;
+        Destroy(GetComponent<NavMeshAgent>());
         playerAnimator.SetTrigger("death");
         interactable = false;
         Time.timeScale = 1;
