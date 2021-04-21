@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
 
         float distance = Vector3.Distance(moveIcon.transform.position, transform.position);
 
-        if (Input.touchCount > 0 && interactable)
+        if (Input.touchCount == 1 && interactable)
         {
             touch1= Input.GetTouch(0);
 
@@ -71,6 +71,10 @@ public class Movement : MonoBehaviour
 
                 MoveIcon();
             }
+        }
+        else if (Input.touchCount > 1 && interactable)
+        {
+            moveIcon.transform.position = transform.position;
         }
 
         // For PC Testing Purposes Only
